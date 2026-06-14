@@ -1,4 +1,4 @@
-## Note: These notes are maintained for quick revision and long-term memorization during my Python learning journey.
+### Note: These notes are maintained for quick revision and long-term memorization during my Python learning journey.
 # History and Design of Python
 
 ## 1. Evolution of Programming Languages
