@@ -139,4 +139,19 @@ Useful for progress updates and real-time logging.
 | `file` | Sends output to a file |
 | `flush` | Forces immediate output |
 
+### Quick Reference: Common `print()` Patterns
+
+| What You Want | Code | Output |
+|--------------|------|--------|
+| Basic output | `print("hello")` | `hello` |
+| Multiple values | `print("a", "b", "c")` | `a b c` |
+| Custom separator | `print("a", "b", sep="-")` | `a-b` |
+| No newline | `print("hi", end="")` | `hi` |
+| Custom ending | `print("hi", end="!")` | `hi!` |
+| Print to file | `print("log", file=f)` | Writes to file |
+| Force instant output | `print("ok", flush=True)` | Immediate output |
+| Empty line | `print()` | Blank line |
+| Visual separator | `print("=" * 30)` | `==============================` |
+| Repeat string | `print("Ha" * 3)` | `HaHaHa` |
+| Reveal hidden characters | `print(repr(text))` | Shows `\n`, `\t`, etc. |
 
