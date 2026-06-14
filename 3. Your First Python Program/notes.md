@@ -52,3 +52,93 @@ It is **not meant for building applications**.
 ```python
 >>> exit()
 ```
+## The Full Power of `print()`
+
+Most developers use only the basic form of `print()`, but it provides several useful parameters:
+
+```python
+print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+```
+
+---
+
+### `sep` — Change What Goes Between Values
+
+By default, `print()` separates values with a space.
+
+```python
+print("Python", "Java", "C++")
+# Output: Python Java C++
+
+print("Python", "Java", "C++", sep=", ")
+# Output: Python, Java, C++
+
+print(2026, 3, 17, sep="-")
+# Output: 2026-3-17
+```
+
+---
+
+### `end` — Change What Comes After Output
+
+By default, `print()` moves to a new line (`\n`).
+
+```python
+print("Loading", end="...")
+print("Done!")
+# Output: Loading...Done!
+
+print("One", end=" → ")
+print("Two", end=" → ")
+print("Three")
+# Output: One → Two → Three
+```
+
+---
+
+### `file` — Write Output to a File
+
+Instead of displaying output on the screen, `print()` can write directly to a file.
+
+```python
+with open("log.txt", "w") as f:
+    print("App started", file=f)
+    print("User logged in", file=f)
+```
+
+Output is stored in `log.txt` instead of the terminal.
+
+---
+
+### `flush` — Force Immediate Output
+
+Python may temporarily hold output before displaying it. `flush=True` forces immediate output.
+
+```python
+import time
+
+print("Step 1...", flush=True)
+time.sleep(1)
+
+print("Step 2...", flush=True)
+time.sleep(1)
+
+print("Done!", flush=True)
+```
+
+Useful for progress updates and real-time logging.
+
+---
+
+### Quick Reference
+
+| Parameter | Purpose |
+|------------|---------|
+| `sep` | Changes separator between values |
+| `end` | Changes ending character/string |
+| `file` | Sends output to a file |
+| `flush` | Forces immediate output |
+
+### Takeaway
+
+The most commonly used parameters are `sep` and `end`, while `file` and `flush` are useful for logging and real-time output.
