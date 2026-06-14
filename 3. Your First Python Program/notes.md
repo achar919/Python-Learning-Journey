@@ -139,6 +139,4 @@ Useful for progress updates and real-time logging.
 | `file` | Sends output to a file |
 | `flush` | Forces immediate output |
 
-### Takeaway
 
-The most commonly used parameters are `sep` and `end`, while `file` and `flush` are useful for logging and real-time output.
