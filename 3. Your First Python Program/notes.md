@@ -157,76 +157,112 @@ Useful for progress updates and real-time logging.
 
 ## `input()` — Receiving Data from the User
 
-`input()` pauses the program and waits for the user to type something.
+### Definition
+
+`input()` pauses the program and waits for the user to enter data.
+
+### Syntax
+
+```python
+variable = input("Prompt Message")
+```
+
+### Example
 
 ```python
 name = input("Enter your name: ")
 print("Hello,", name)
 ```
 
-When this runs:
+**Output**
 
 ```text
-Enter your name: OnePercentDev
-Hello, OnePercentDev
+Enter your name: Vishwas
+Hello, Vishwas
 ```
 
-The text inside `input()` is called a **prompt** — it tells the user what to type.
+### Prompt
+
+The text inside `input()` is called a **prompt**.
+
+```python
+input("Enter your name: ")
+```
+
+Here, `"Enter your name: "` is the prompt displayed to the user.
 
 ---
 
-### Important: `input()` Always Returns a String
+### Important Rule
 
-Everything that comes from `input()` is a **string (text)**, even if the user types a number.
+`input()` always returns a **string (`str`)**.
 
 ```python
 age = input("Enter your age: ")
 print(type(age))
 ```
 
-Output:
+**Output**
 
 ```text
 <class 'str'>
 ```
 
-Even if you type `25`, Python treats it as the text `"25"`, not the number `25`.
+Even if the user enters:
+
+```text
+25
+```
+
+Python treats it as:
+
+```python
+"25"
+```
+
+not
+
+```python
+25
+```
 
 ---
 
-### Converting Input to a Number
+### Converting Input to Numbers
 
-To work with numbers from input, convert using `int()` or `float()`:
+Use `int()` for whole numbers.
+
+```python
+age = int(input("Enter your age: "))
+```
+
+Use `float()` for decimal numbers.
+
+```python
+salary = float(input("Enter your salary: "))
+```
+
+### Example
 
 ```python
 age = int(input("Enter your age: "))
 print(type(age))
 ```
 
-Output:
+**Output**
 
 ```text
 <class 'int'>
 ```
 
-Now `age` is an actual number and you can do math with it.
+Now Python treats `age` as a number, allowing mathematical operations.
 
 ---
 
 ### Quick Reference
 
-| Function | Purpose |
-|----------|---------|
-| `input()` | Receive user input |
-| `int()` | Convert text to integer |
-| `float()` | Convert text to decimal number |
-
-### Examples
-
-```python
-age = int(input("Enter your age: "))
-```
-
-```python
-price = float(input("Enter the price: "))
-```
+| Function  | Purpose            | Example          |
+| --------- | ------------------ | ---------------- |
+| `input()` | Receive user input | `name = input()` |
+| `int()`   | Convert to integer | `int("25")`      |
+| `float()` | Convert to decimal | `float("3.14")`  |
