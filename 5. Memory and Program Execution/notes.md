@@ -172,3 +172,34 @@ Heap = Organized Region
 ```
 
 The operating system and runtime create these regions to manage memory efficiently.
+
+## Stack vs Heap Memory
+
+| Feature | Stack | Heap |
+|----------|--------|------|
+| Purpose | Stores function calls and local variables | Stores actual objects and data |
+| Speed | Faster | Slower |
+| Memory Management | Automatic | Managed by Python |
+| Lifetime | Removed when function ends | Exists until no longer needed |
+| Examples | Function parameters, local variables | Strings, Lists, Dictionaries, Objects |
+
+### Example
+
+```python
+name = "Vishwas"
+numbers = [10, 20, 30]
+```
+
+| Variable | Stored In |
+|-----------|-----------|
+| `name` | Stack (reference) |
+| `"Vishwas"` | Heap |
+| `numbers` | Stack (reference) |
+| `[10, 20, 30]` | Heap |
+
+### Memory Flow
+
+```text
+Variable Name → Stack
+Actual Data   → Heap
+```
