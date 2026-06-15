@@ -65,36 +65,21 @@ Each token is the smallest meaningful unit — a name, a symbol, or a number.
 
 ## 3. Parsing
 
-### Definition
+Once Python has the tokens, it structures them into an **Abstract Syntax Tree (AST)** — a tree that represents the meaning of your code.
 
-Python checks whether the tokens follow valid Python syntax and builds an **Abstract Syntax Tree (AST)**.
+Lexing gave Python the individual words.
 
-### Example
+Parsing figures out the grammar — how those words relate to each other.
+
+For:
 
 ```python
 x = 10
 ```
 
-Python understands:
+parsing understands:
 
-* Assignment operation
-* Variable name: `x`
-* Value: `10`
-
-### Purpose
-
-* Validates syntax
-* Creates program structure
-
-### Common Error
-
-```python
-x = = 10
-```
-
-Results in a syntax error during parsing.
-
----
+> "this is an assignment, the left side is a variable name called x, the right side is the number 10."
 
 ## 4. Compilation to Bytecode
 
