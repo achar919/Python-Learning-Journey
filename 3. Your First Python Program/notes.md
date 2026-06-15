@@ -347,3 +347,14 @@ Input → Process → Output
 | Data Pipeline | Raw Data | Transform Data | Store Result |
 
 Every system you build follows this pattern.
+## References
+
+The concepts and learning structure used in these notes were inspired by the following repository:
+
+* [One Percent Dev](https://github.com/Shyamiscoding/onepercentdev?utm_source=chatgpt.com)
+
+### Note
+
+These notes are my personal revision notes created during my Python learning journey.
+
+The content has been summarized, reorganized, and rewritten in my own format for quick revision, long-term memorization, and practical understanding.
