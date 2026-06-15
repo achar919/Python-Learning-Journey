@@ -287,3 +287,197 @@ x does not exist
 Each program execution starts with a fresh memory space.
 
 Variables from previous runs do not exist after the program ends.
+
+## Variable Assignment and Memory References
+
+### Step 1: `x = 10`
+
+```python
+x = 10
+
+print(f"x = {x}")
+print(f"id(x) = {id(x)}")
+```
+
+Output:
+
+```text
+x = 10
+id(x) = 4392513792
+```
+
+### Memory View
+
+```text
+STACK                     HEAP
+┌──────┐               ┌────────────┐
+│  x  ───────────────▶ │ value: 10  │
+└──────┘               └────────────┘
+```
+
+---
+
+### Step 2: `y = x`
+
+```python
+y = x
+
+print(f"x = {x}")
+print(f"y = {y}")
+
+print(f"id(x) = {id(x)}")
+print(f"id(y) = {id(y)}")
+
+print(f"Same id? {id(x) == id(y)}")
+```
+
+Output:
+
+```text
+x = 10
+y = 10
+
+id(x) = 4392513792
+id(y) = 4392513792
+
+Same id? True
+```
+
+### Memory View
+
+```text
+STACK                     HEAP
+┌──────┐               ┌────────────┐
+│ x ────────────────▶ │ value: 10  │
+│ y ────────────────▶ │            │
+└──────┘               └────────────┘
+```
+
+### Observation
+
+* No new value is created.
+* `x` and `y` reference the same object.
+* Same `id()` means same object in memory.
+
+---
+
+### Step 3: `x = 20`
+
+```python
+x = 20
+
+print(f"x = {x}")
+print(f"y = {y}")
+
+print(f"id(x) = {id(x)}")
+print(f"id(y) = {id(y)}")
+
+print(f"Same id? {id(x) == id(y)}")
+```
+
+Output:
+
+```text
+x = 20
+y = 10
+
+id(x) = 4392514112
+id(y) = 4392513792
+
+Same id? False
+```
+
+### Memory View
+
+```text
+STACK                     HEAP
+┌──────┐               ┌────────────┐
+│ x ────────────────▶ │ value: 20  │
+│                    │            │
+│ y ────────┐         └────────────┘
+└──────┘    └──────▶ ┌────────────┐
+                     │ value: 10  │
+                     └────────────┘
+```
+
+### Observation
+
+* A new object is created for `20`.
+* `x` now references the new object.
+* `y` continues to reference `10`.
+* Reassignment changes the reference, not the original object.
+
+---
+
+## What `id()` Returns
+
+### Definition
+
+`id()` returns the unique identity of an object during its lifetime.
+
+```python
+x = 10
+
+print(id(x))
+```
+
+### Usage
+
+| Condition        | Meaning           |
+| ---------------- | ----------------- |
+| Same `id()`      | Same object       |
+| Different `id()` | Different objects |
+
+### Example
+
+```python
+x = 10
+y = x
+
+print(id(x) == id(y))
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## Garbage Collection
+
+### Definition
+
+When no variable references an object, it becomes eligible for garbage collection.
+
+### Example
+
+```python
+x = 10
+x = 20
+```
+
+### Memory View
+
+```text
+STACK                     HEAP
+┌──────┐               ┌────────────┐
+│ x ────────────────▶ │ value: 20  │
+└──────┘               └────────────┘
+
+                       ┌────────────┐
+                       │ value: 10  │
+                       └────────────┘
+```
+
+### What Happens?
+
+1. `x` initially references `10`.
+2. `x` is reassigned to `20`.
+3. No variable references `10`.
+4. Python's garbage collector can remove the unused object.
+
+### Key Point
+
+Objects with no references become eligible for memory cleanup.
