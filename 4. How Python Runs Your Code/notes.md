@@ -49,21 +49,17 @@ Code:
 x = 10
 ```
 
-Tokens:
+| Token | Category | Purpose |
+|---------|---------|---------|
+| `x` | Variable | Stores data |
+| `=` | Assignment Operator | Assigns a value |
+| `10` | Integer | Data being stored |
 
-| Token | Type     |
-| ----- | -------- |
-| `x`   | NAME     |
-| `=`   | OPERATOR |
-| `10`  | NUMBER   |
+### Result
 
-### Purpose
-
-* Identifies variables
-* Identifies operators
-* Identifies values
-
----
+```text
+Variable x receives the value 10.
+```
 
 ## 3. Parsing
 
