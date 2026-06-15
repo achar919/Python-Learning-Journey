@@ -266,3 +266,84 @@ Now Python treats `age` as a number, allowing mathematical operations.
 | `input()` | Receive user input | `name = input()` |
 | `int()`   | Convert to integer | `int("25")`      |
 | `float()` | Convert to decimal | `float("3.14")`  |
+
+## f-strings — Clean Output Formatting
+
+Python provides a clean way to embed values inside strings using **f-strings** (formatted string literals).
+
+### Example
+
+```python
+name = "Vishwas"
+age = 25
+
+print(f"My name is {name} and I am {age} years old")
+```
+
+Output:
+
+```text
+My name is Vishwas and I am 25 years old
+```
+
+The `f` before the quotes tells Python to look for `{}` placeholders and replace them with actual values.
+
+f-strings are the modern, preferred way to format output in Python.
+
+---
+
+### f-string Formatting Tricks
+
+```python
+print(f"{1400000000:,}")
+# Output: 1,400,000,000
+
+print(f"{0.9534:.1%}")
+# Output: 95.3%
+
+print(f"{0.85:.0%}")
+# Output: 85%
+
+print(f"{'Python':*^20}")
+# Output: *******Python*******
+```
+
+### Quick Reference
+
+| Format | What It Does | Example Output |
+|----------|----------|----------|
+| `:,` | Add commas to numbers | `1,000,000` |
+| `:.1%` | Percentage with 1 decimal | `95.3%` |
+| `:.0%` | Percentage, no decimal | `85%` |
+| `:*^20` | Center and fill with `*` | `*******Python*******` |
+| `:<20` | Left-align in 20 characters | `Python              ` |
+| `:>20` | Right-align in 20 characters | `              Python` |
+
+---
+
+## The Fundamental Program Model
+
+Every program follows the same core model:
+
+```text
+Input → Process → Output
+```
+
+### Process Flow
+
+| Step | What Happens | Example |
+|--------|-------------|---------|
+| Input | Data comes in | Vishwas enters a number |
+| Process | Program works on the data | Calculate the square of the number |
+| Output | Result goes out | Display the answer |
+
+### Real-World Examples
+
+| Application | Input | Process | Output |
+|------------|--------|---------|---------|
+| Calculator | Numbers | Calculation | Result |
+| Web API | Request | Business Logic | Response |
+| AI Model | Prompt | Model Processing | Generated Text |
+| Data Pipeline | Raw Data | Transform Data | Store Result |
+
+Every system you build follows this pattern.
