@@ -33,33 +33,35 @@ x = 10
 print(x)
 ```
 
----
+## 2 — Lexing (Tokenization)
 
-## 2. Lexing (Tokenization)
+Before Python can understand your code, it first breaks the raw text into small meaningful pieces called **tokens**.
 
-### Definition
-
-Python breaks source code into small meaningful units called **tokens**.
+This step is called **lexing** (or **tokenization**).
 
 ### Example
 
-Code:
+When Python reads:
 
 ```python
 x = 10
 ```
 
-| Token | Category | Purpose |
-|---------|---------|---------|
-| `x` | Variable | Stores data |
-| `=` | Assignment Operator | Assigns a value |
-| `10` | Integer | Data being stored |
-
-### Result
+it sees it as one long string of characters:
 
 ```text
-Variable x receives the value 10.
+x,  , =,  , 1, 0
 ```
+
+Lexing splits it into individual tokens:
+
+| Token | Type |
+|---------|---------|
+| `x` | NAME (variable name) |
+| `=` | OP (operator) |
+| `10` | NUMBER (integer) |
+
+Each token is the smallest meaningful unit — a name, a symbol, or a number.
 
 ## 3. Parsing
 
