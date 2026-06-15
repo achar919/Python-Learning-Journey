@@ -187,3 +187,23 @@ Hello
 | Output      | Produces result                  |
 
 ---
+
+## The Complete Picture
+
+When you run:
+
+```bash
+python main.py
+```
+
+The following steps occur:
+
+1. The operating system loads the Python interpreter (**CPython**) into RAM.
+2. CPython reads your `.py` file from disk.
+3. It breaks the source code into tokens (**lexing**).
+4. It structures the tokens into an Abstract Syntax Tree (**parsing**).
+5. It compiles the AST into bytecode.
+6. The Python Virtual Machine (**PVM**) executes the bytecode.
+7. Output is sent to the screen.
+
+All of this happens in milliseconds for simple programs.
