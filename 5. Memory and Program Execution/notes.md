@@ -203,3 +203,87 @@ numbers = [10, 20, 30]
 Variable Name → Stack
 Actual Data   → Heap
 ```
+
+## What Happens When You Run `python3 main.py`
+
+### Execution Flow
+
+```text
+python3 main.py
+       ↓
+OS loads CPython into RAM
+       ↓
+CPython reads main.py
+       ↓
+Lexing → Parsing → Bytecode
+       ↓
+PVM executes bytecode
+       ↓
+Variable created
+       ↓
+Program Output
+       ↓
+Program Ends
+```
+
+---
+
+### Example
+
+Code:
+
+```python
+x = 10
+```
+
+### Memory Flow
+
+```text
+PVM executes x = 10
+        ↓
+Creates value 10 in Heap
+        ↓
+Creates name x
+        ↓
+x points to 10
+```
+
+```text
+Stack                  Heap
+-----                  -----
+x         ─────────▶   10
+```
+
+---
+
+## What Happens When the Program Ends?
+
+When the program finishes:
+
+* Stack memory is cleared
+* Heap memory is released
+* Variables are destroyed
+* Memory is returned to the operating system
+
+### Example
+
+```text
+Run 1
+python3 main.py
+x = 10
+Program Ends
+Memory Freed
+```
+
+```text
+Run 2
+python3 main.py
+Starts Fresh
+x does not exist
+```
+
+### Key Point
+
+Each program execution starts with a fresh memory space.
+
+Variables from previous runs do not exist after the program ends.
