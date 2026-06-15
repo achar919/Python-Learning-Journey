@@ -155,3 +155,78 @@ Useful for progress updates and real-time logging.
 | Repeat string | `print("Ha" * 3)` | `HaHaHa` |
 | Reveal hidden characters | `print(repr(text))` | Shows `\n`, `\t`, etc. |
 
+## `input()` — Receiving Data from the User
+
+`input()` pauses the program and waits for the user to type something.
+
+```python
+name = input("Enter your name: ")
+print("Hello,", name)
+```
+
+When this runs:
+
+```text
+Enter your name: OnePercentDev
+Hello, OnePercentDev
+```
+
+The text inside `input()` is called a **prompt** — it tells the user what to type.
+
+---
+
+### Important: `input()` Always Returns a String
+
+Everything that comes from `input()` is a **string (text)**, even if the user types a number.
+
+```python
+age = input("Enter your age: ")
+print(type(age))
+```
+
+Output:
+
+```text
+<class 'str'>
+```
+
+Even if you type `25`, Python treats it as the text `"25"`, not the number `25`.
+
+---
+
+### Converting Input to a Number
+
+To work with numbers from input, convert using `int()` or `float()`:
+
+```python
+age = int(input("Enter your age: "))
+print(type(age))
+```
+
+Output:
+
+```text
+<class 'int'>
+```
+
+Now `age` is an actual number and you can do math with it.
+
+---
+
+### Quick Reference
+
+| Function | Purpose |
+|----------|---------|
+| `input()` | Receive user input |
+| `int()` | Convert text to integer |
+| `float()` | Convert text to decimal number |
+
+### Examples
+
+```python
+age = int(input("Enter your age: "))
+```
+
+```python
+price = float(input("Enter the price: "))
+```
