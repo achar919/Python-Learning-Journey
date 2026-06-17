@@ -290,3 +290,73 @@ When you write `a = 1000`, Python checks: "Is 1000 between -5 and 256?" No — s
 | Does this apply to floats?                              | No, only integers                                     |
 | Can you change the range?                               | Not without modifying CPython's source code           |
 | Why does `is` return `True` for `1000` in a `.py` file? | Compiler optimization (constant folding), not caching |
+
+# Naming Rules and Conventions
+
+## Rules (Python enforces these)
+
+* Names can contain letters, numbers, and underscores
+* Names cannot start with a number
+* Names are case-sensitive (`age` and `Age` are different)
+* Reserved keywords cannot be used as names (`if`, `for`, `while`, `class`, etc.)
+
+```python
+# Valid
+user_name = "Dev"
+age_2 = 28
+_private = "internal"
+
+# Invalid
+2name = "error"      # cannot start with number
+my-name = "error"    # hyphens not allowed
+class = "error"      # 'class' is a reserved keyword
+```
+
+## Conventions (Python community follows these — PEP 8)
+
+| Convention | Usage                   | Example                   |
+| ---------- | ----------------------- | ------------------------- |
+| snake_case | Variables and functions | user_name, calculate_age  |
+| UPPER_CASE | Constants               | MAX_RETRIES, API_KEY      |
+| PascalCase | Classes                 | UserProfile, DataPipeline |
+
+Following these conventions makes your code readable and consistent with the Python ecosystem.
+
+# Mutability Preview
+
+Objects in Python fall into two categories:
+
+### Immutable — cannot be changed after creation:
+
+```text
+int, float, str, bool, tuple, frozenset, range, bytes, NoneType
+```
+
+### Mutable — can be changed after creation:
+
+```text
+list, dict, set
+```
+
+We have not covered all of these yet. In the next part, you will see the full data types overview.
+
+For now, the important thing to understand:
+
+```python
+name = "Python"
+name = "C"
+```
+
+This does not change the original string object `"Python"`. It creates a new string object `"C"` in the heap and repoints the variable `name` to it. The original `"Python"` object is untouched. That is what immutability means.
+
+```text
+BEFORE: name = "Python"           AFTER: name = "C"
+
+  STACK         HEAP               STACK         HEAP
+ ┌──────┐     ┌───────────┐      ┌──────┐     ┌───────────┐
+ │ name ─────▶│str: Python│      │ name ─────▶│str: C     │ ← new object
+ └──────┘     └───────────┘      └──────┘     └───────────┘
+                                               ┌───────────┐
+                                    nobody ──▶ │str: Python│ ← orphan
+                                               └───────────┘
+```
