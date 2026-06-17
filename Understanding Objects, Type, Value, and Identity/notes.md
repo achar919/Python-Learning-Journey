@@ -250,3 +250,31 @@ print(count + 1)                # TypeError!
 ```
 
 The fix is always the same — be aware of your types. Use `type()` to check when debugging.
+
+# Integer Caching
+
+Python optimizes small integers. Integers from -5 to 256 are cached — Python creates them once at startup and reuses them.
+
+```python
+a = 100
+b = 100
+print(a is b)   # True — same cached object
+
+a = 1000
+b = 1000
+print(a is b)   # may be False — not cached, separate objects
+```
+
+## How This Actually Works
+
+When CPython starts — before your code even runs — it pre-creates 262 integer objects in the heap:
+
+```text
+-5, -4, -3, -2, -1, 0, 1, 2, 3, ... 254, 255, 256
+```
+
+These objects sit in the heap permanently. They are never destroyed during the program's lifetime.
+
+When you write `a = 100`, Python checks: "Is 100 between -5 and 256?" Yes — so instead of creating a new object, it points `a` to the already existing `100` object. When you write `b = 100`, the same thing happens. Both variables point to the same pre-created object.
+
+When you write `a = 1000`, Python checks: "Is 1000 between -5 and 256?" No — so it creates a new object. `b = 1000` creates another new object. Two separate objects, same value, different desks.
