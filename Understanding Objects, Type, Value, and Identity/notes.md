@@ -278,3 +278,15 @@ These objects sit in the heap permanently. They are never destroyed during the p
 When you write `a = 100`, Python checks: "Is 100 between -5 and 256?" Yes — so instead of creating a new object, it points `a` to the already existing `100` object. When you write `b = 100`, the same thing happens. Both variables point to the same pre-created object.
 
 When you write `a = 1000`, Python checks: "Is 1000 between -5 and 256?" No — so it creates a new object. `b = 1000` creates another new object. Two separate objects, same value, different desks.
+
+## Quick Reference
+
+| Question                                                | Answer                                                |
+| ------------------------------------------------------- | ----------------------------------------------------- |
+| Which integers are cached?                              | Exactly -5 to 256                                     |
+| When are they created?                                  | At CPython startup, before your code runs             |
+| Where do they live?                                     | In the heap, permanently                              |
+| Based on your RAM size?                                 | No, same on every system                              |
+| Does this apply to floats?                              | No, only integers                                     |
+| Can you change the range?                               | Not without modifying CPython's source code           |
+| Why does `is` return `True` for `1000` in a `.py` file? | Compiler optimization (constant folding), not caching |
