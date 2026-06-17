@@ -214,8 +214,39 @@ Understanding objects helps explain:
 * Function arguments
 * Mutable vs immutable objects
 * Many Python errors
-
----
-
 * `is` compares identities.
 * Variables store references to objects, not the actual objects themselves.
+
+# Dynamic Typing — Variables Are Not Locked to a Type
+
+Because variables are name tags (not boxes), a variable can point to any type of object — and you can change it anytime:
+
+```python
+x = 10
+print(type(x))   # <class 'int'>
+
+x = "hello"
+print(type(x))   # <class 'str'>
+
+x = 3.14
+print(type(x))   # <class 'float'>
+
+x = True
+print(type(x))   # <class 'bool'>
+```
+
+Python does not complain. The variable x is just a name tag — first it pointed to an integer object, then a string object, then a float, then a boolean. The name tag moved. That is dynamic typing.
+
+In the IT company — it is like the receptionist updating the register. "x" was pointing to a developer on the 4th floor. Now "x" points to a designer on the 2nd floor. The register (stack) just updated the arrow. The receptionist does not care what type of employee it is.
+
+Dynamic typing makes Python fast to write and experiment with — no type declarations, no restrictions.
+
+But it also means Python will not warn you if a variable changes type unexpectedly:
+
+```python
+count = 10
+count = input("Enter count: ")  # Now count is a string, not an int
+print(count + 1)                # TypeError!
+```
+
+The fix is always the same — be aware of your types. Use `type()` to check when debugging.
