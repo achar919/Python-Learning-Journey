@@ -82,3 +82,34 @@ print(result)  # "0, 1, 2, 3, 4"
 ```
 
 `.join()` is always preferred over repeated `+` concatenation.
+
+# Case Conversion Methods
+
+```python
+text = "python for 1% developers"
+
+print(text.upper())       # PYTHON FOR 1% DEVELOPERS
+print(text.lower())       # python for 1% developers
+print(text.title())       # Python For 1% Developers
+print(text.capitalize())  # Python for 1% developers
+```
+
+| Method          | What It Does                          |
+| --------------- | ------------------------------------- |
+| `.upper()`      | All characters to uppercase           |
+| `.lower()`      | All characters to lowercase           |
+| `.title()`      | First letter of each word capitalized |
+| `.capitalize()` | Only the first character capitalized  |
+
+## Real-World Use
+
+When comparing user input, always normalize the case first:
+
+```python
+user_input = input("Enter yes or no: ")
+
+if user_input.lower() == "yes":
+    print("Confirmed")
+```
+
+Without `.lower()`, inputs like `"YES"`, `"Yes"`, `"yEs"` would all fail the comparison.
