@@ -127,3 +127,31 @@ print("A" < "a")            # True — A(65) < a(97), uppercase is "smaller"
 ```python
 print("app" < "apple")    # True — "app" is shorter
 ```
+
+# Comparing Different Types
+
+`==` works between any types — checks if values are equal.
+
+```python
+print(10 == 10.0)     # True  — int and float, same mathematical value
+print(10 == "10")     # False — int and str, different types = not equal
+print(True == 1)      # True  — bool is subclass of int
+print(False == 0)     # True
+print(True == 1.0)    # True  — 1.0 equals 1 equals True
+```
+
+`<`, `>`, `<=`, `>=` raise `TypeError` when types are incompatible.
+
+```python
+print(10 > 5)         # True  — both int, works
+print(10 > 5.0)       # True  — int vs float, Python can compare these
+print("10" > 5)       # TypeError: '>' not supported between 'str' and 'int'
+```
+
+Python does not guess what you meant — `"10"` is a string, `5` is an integer.
+
+Other languages silently convert and give surprising results.
+
+Python raises an error → you catch the bug immediately.
+
+This is a safety feature, not a limitation.
