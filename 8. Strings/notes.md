@@ -52,3 +52,33 @@ print(len(greeting))
 ```
 
 Python handles multi-language text natively. This is important for applications that serve users in different languages.
+
+# `.join()` — Combining Parts Back into a String
+
+`.join()` is the reverse of `.split()`. It takes a collection of strings and joins them with a separator:
+
+```python
+words = ["Python", "is", "powerful"]
+sentence = " ".join(words)
+print(sentence)   # "Python is powerful"
+
+parts = ["2026", "03", "19"]
+date = "-".join(parts)
+print(date)   # "2026-03-19"
+```
+
+## Why `join()` Is Better Than `+` in Loops
+
+`+` concatenation in loops is inefficient because it creates a new string every iteration. `join()` is the professional solution:
+
+```python
+numbers = []
+
+for i in range(5):
+    numbers.append(str(i))
+
+result = ", ".join(numbers)
+print(result)  # "0, 1, 2, 3, 4"
+```
+
+`.join()` is always preferred over repeated `+` concatenation.
