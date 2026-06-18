@@ -28,3 +28,27 @@ Here is every string method covered in this part, in one place. Every method ret
 | `.center(width)`      | Centers string within width, padding with spaces                    | `str`   |
 | `.ljust(width)`       | Left-justifies string within width                                  | `str`   |
 | `.rjust(width)`       | Right-justifies string within width                                 | `str`   |
+
+# Method Chaining
+
+Because every string method returns a new string, you can chain them:
+
+```python
+raw = "   Hello, WORLD!   "
+clean = raw.strip().lower().replace("!", "")
+print(clean)   # "hello, world"
+```
+
+Each method operates on the result of the previous one. This is a common and clean pattern in Python.
+
+# Unicode Awareness
+
+Python strings support Unicode — they can hold characters from any language:
+
+```python
+greeting = "ನಮಸ್ಕಾರ"  # Kannada
+print(greeting)
+print(len(greeting))
+```
+
+Python handles multi-language text natively. This is important for applications that serve users in different languages.
