@@ -109,3 +109,21 @@ print(id(result))   # same id as every other True
 Millions of comparisons, but only two boolean objects ever exist.
 
 This is efficient — Python does not waste memory on repeated `True`/`False` objects.
+
+# Comparing Strings
+
+* Compared character by character using Unicode values
+* From Part 9: `'A' = 65`, `'B' = 66`, `'a' = 97`, `'b' = 98`
+
+```python
+print("apple" < "banana")   # True — a(97) < b(98)
+print("abc" == "abc")       # True
+print("A" < "a")            # True — A(65) < a(97), uppercase is "smaller"
+```
+
+* First position where characters differ determines the result
+* If one string is a prefix of the other → shorter one is "less than"
+
+```python
+print("app" < "apple")    # True — "app" is shorter
+```
